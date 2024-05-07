@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Test Result</title>
+</head>
+<body>
+    <h1>Submit Test Result</h1>
+    {% if user %}
+        <p>Welcome, {{ user }}!</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ result_form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

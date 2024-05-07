@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f7b1f7;
+            /* Light gray background */
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            /* Navbar background color */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            /* Navbar brand text color */
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            /* Navbar links text color */
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff;
+            /* Navbar links hover color */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #343a40; /* Footer background color */
+            color: #fff; /* Footer text color */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed; /* Fixed position */
+            bottom: 0; /* Stick to the bottom */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+                <img src="/static/images/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                <span style="margin-top: 5px; font-size: 18px; font-weight: bold;">Medicare Health Services</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/view_result">Test Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/news">News and Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/careers">Careers</a>
+                    </li>
+                    {% if user is none %}
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link">Signup</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome, {{ user }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/userlogout">Logout</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+    <!-- Page content start -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="mt-5 mb-3">Advanced Life Support Level 1 (ALS1) - 20 May 2024</h1>
+                <hr>
+                <h3 class="mb-3">One-day course aimed at providing the candidate with the skills and knowledge to manage the patient in
+                    the immediate period of crisis. It includes the recognition, assessment and immediate management of the
+                    deteriorating patient.</h3>
+                <p class="mb-3">Candidates are sent a manual at least 2 weeks before the course to commence preparation for the
+                    face-to-face component. This includes those skills for dealing with a cardiac arrest or other medical
+                    emergencies in a clinical setting.</p>
+                <h4 class="mb-3">Where</h4>
+                <p class="mb-3">The course takes place at the Melbourne Clinical Simulation Centre at the RMH Parkville.</p>
+                <h4 class="mb-3">Target audience</h4>
+                <p class="mb-3">Medical and nursing</p>
+                <h4 class="mb-3">Intended Learning outcomes</h4>
+                <ul class="mb-3">
+                    <li>Recognition, assessment and management of the critically ill patient using a structured ABCDE approach (aiming to prevent cardiac arrest)</li>
+                    <li>Airway management skills</li>
+                    <li>Basic life support</li>
+                    <li>Defibrillation skills</li>
+                    <li>Cardiac arrest management using the ARC ALS algorithm</li>
+                    <li>Work as an effective team member in a cardiac arrest</li>
+                </ul>
+                <h4 class="mb-3">Accreditation</h4>
+                <p class="mb-3">The MHS delivers the course jointly accredited by the Resuscitation Council (UK) and the Australian
+                    Resuscitation Council (ARC).
+
+                    The course is accredited for quality assurance (QA) and Continuing Medical education (CME) points with
+                    multiple medical colleges.
+                </p>
+                <h4 class="mb-3">How long will this event run for?</h4>
+                <p class="mb-3">This event will run for approximately 1 day</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page content end -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Medicare Health Services. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
